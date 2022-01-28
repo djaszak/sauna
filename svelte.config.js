@@ -9,7 +9,7 @@ const config = {
     adapter: adapter(),
     target: '#svelte',
     methodOverride: {
-      allowed: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+      allowed: ['DELETE', 'PATCH'],
     },
     vite: {
       plugins: [process.env.NODE_ENV === 'production' && optimizeCss()],

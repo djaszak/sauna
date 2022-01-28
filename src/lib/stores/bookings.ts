@@ -29,3 +29,11 @@ export async function update(booking: Partial<Booking>) {
   })
   return response.data
 }
+
+export async function remove(id: string) {
+  const response = await axios({
+    url: `/api/bookings/${id}`,
+    method: 'DELETE',
+  })
+  return response.data
+}
