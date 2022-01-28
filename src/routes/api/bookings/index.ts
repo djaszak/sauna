@@ -11,7 +11,6 @@ export const post: RequestHandler<Locals> = async ({ request, locals }) => {
     const booking = await DB.booking.create({ data: body })
     return { body: booking }
   } catch (e) {
-    console.error(e)
     return { body: { error: e as any } }
   }
 }

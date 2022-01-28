@@ -14,7 +14,6 @@
 
   function updateDate(e: any) {
     const d = dayjs(date)
-    console.log('Date', e.detail.dateStr)
     const updated = dayjs(e.detail.dateStr, 'DD/MM/YYYY').hour(d.hour()).minute(d.minute())
     date = updated.toDate()
   }

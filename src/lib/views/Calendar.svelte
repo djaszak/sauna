@@ -2,16 +2,12 @@
   import DateTime from '$lib/components/DateTime.svelte'
   import { all, create, remove, update } from '$lib/stores/bookings'
   import { load, userById } from '$lib/stores/users'
-
   import type { Booking } from '@prisma/client'
-
   import { Button, Form, Modal, TextArea } from 'carbon-components-svelte'
   import dayjs from 'dayjs'
-
   import { onMount } from 'svelte'
-  import type { IEventObject, IEventScheduleObject, TEventBeforeCreateSchedule } from 'tui-calendar'
   import type Calendar from 'tui-calendar'
-
+  import type { IEventObject, IEventScheduleObject, TEventBeforeCreateSchedule } from 'tui-calendar'
   import 'tui-calendar/dist/tui-calendar.css'
 
   const calendarId = '1'
@@ -42,7 +38,6 @@
     })
 
     calendar.on('beforeUpdateSchedule', async (e: IEventObject) => {
-      console.debug('beforeUpdateSchedule', e)
       const id = e.schedule.id
       if (!id || !e.schedule.calendarId) return
       const booking: Partial<Booking> = {
@@ -57,7 +52,6 @@
     })
 
     calendar.on('clickSchedule', (e: IEventScheduleObject) => {
-      console.log('clickSchedule', e)
       booking = {
         id: e.schedule.id as string,
         start: (e.schedule.start! as any).toDate(),
@@ -107,7 +101,6 @@
         addEntry(updated)
       } else {
         const created = await create(booking)
-        console.log(created)
         addEntry(created)
       }
       booking = null
