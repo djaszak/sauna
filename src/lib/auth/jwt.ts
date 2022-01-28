@@ -6,10 +6,6 @@ config()
 
 const JWT_SECRET = process.env.JWT_SECRET || ''
 
-// if (!JWT_SECRET) {
-//   throw new Error('JWT_SECRET is undefined')
-// }
-
 export type JWT_TOKEN = {
   email: User['email']
 }
