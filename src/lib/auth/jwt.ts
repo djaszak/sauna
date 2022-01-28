@@ -21,5 +21,5 @@ export async function sign(payload: JWT_TOKEN) {
 }
 
 export async function verify(token: string) {
-  return (await jwt.verify(token, JWT_SECRET)) as JWT_TOKEN
+  return jwt.verify(token, JWT_SECRET) as JWT_TOKEN
 }

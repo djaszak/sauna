@@ -6,8 +6,9 @@ import { set } from '$lib/auth/cookie'
 
 export type UserLoginDTO = Pick<User, 'email' | 'password'>
 
-export const post: RequestHandler<{}, UserLoginDTO, any> = async ({ body }) => {
+export const post: RequestHandler = async ({ request }) => {
   try {
+    const body = await request.json()
     const user = await DB.user.findFirst({
       where: { email: body.email },
     })
@@ -27,6 +28,6 @@ export const post: RequestHandler<{}, UserLoginDTO, any> = async ({ body }) => {
       }
     }
   } catch (error) {
-    return { status: 400, body: { error } }
+    return { status: 400, body: { error: error as any } }
   }
 }

@@ -4,9 +4,9 @@ import type { Locals } from 'src/hooks'
 
 export type UserLoginDTO = Pick<User, 'email' | 'password'>
 
-export const get: RequestHandler<Locals, {}, {}> = async (request) => {
+export const get: RequestHandler<Locals> = async ({ locals }) => {
   return {
-    status: request.locals.user ? 200 : 401,
-    body: { user: request.locals.user },
+    status: locals.user ? 200 : 401,
+    body: { user: locals.user },
   }
 }

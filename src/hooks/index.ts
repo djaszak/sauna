@@ -7,16 +7,16 @@ export type Locals = {
   user: User | null
 }
 
-export const handle: Handle<Locals> = async ({ request, resolve }) => {
-  const c = cookie.parse(request.headers.cookie || '')['token']
+export const handle: Handle<Locals> = async ({ event, resolve }) => {
+  const c = cookie.parse(event.request.headers.get('cookie') || '')['token']
   if (c) {
     try {
       const token = await verify(c)
       const user = await DB.user.findFirst({ where: { email: token.email } })
-      request.locals.user = user
+      event.locals.user = user
     } catch {
-      request.locals.user = null
+      event.locals.user = null
     }
   }
-  return await resolve(request)
+  return await resolve(event)
 }

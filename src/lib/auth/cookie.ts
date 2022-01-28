@@ -7,6 +7,7 @@ export function set(key: string, value: string): string {
     httpOnly: true,
     // secure: true,
     sameSite: 'strict',
+    path: '/',
     expires: new Date(Date.now() + ms(Duration)),
   })
 }

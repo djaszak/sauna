@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { DatePicker, TimePicker, TimePickerSelect, DatePickerInput } from 'carbon-components-svelte'
+  import { DatePicker, TimePicker, DatePickerInput } from 'carbon-components-svelte'
   import dayjs from 'dayjs'
 
   export let date: Date
@@ -14,7 +14,8 @@
 
   function updateDate(e: any) {
     const d = dayjs(date)
-    const updated = dayjs(e.detail.dateStr, 'dd/mm/yyyy').hour(d.hour()).minute(d.minute())
+    console.log('Date', e.detail.dateStr)
+    const updated = dayjs(e.detail.dateStr, 'DD/MM/YYYY').hour(d.hour()).minute(d.minute())
     date = updated.toDate()
   }
 </script>

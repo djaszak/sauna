@@ -1,11 +1,12 @@
-import DB, { Prisma } from '$lib/db'
+import DB from '$lib/db'
 import argon2 from 'argon2'
 import type { RequestHandler } from '@sveltejs/kit'
 import { sign } from '$lib/auth/jwt'
 import { set } from '$lib/auth/cookie'
 
-export const post: RequestHandler<{}, Prisma.UserCreateInput, any> = async ({ body }) => {
+export const post: RequestHandler = async ({ request }) => {
   try {
+    const body = await request.json()
     body.password = await argon2.hash(body.password)
 
     await DB.user.create({
