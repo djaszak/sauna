@@ -1,0 +1,8 @@
+*
+!package.json
+!pnpm-lock.yaml
+!tsconfig.json
+!svelte.config.js
+!src
+!static
+!prisma
