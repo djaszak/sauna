@@ -5,8 +5,7 @@ import dayjs from 'dayjs'
 export const get: RequestHandler = async () => {
   let csv = '\n'
 
-  const date = dayjs().subtract(1, 'hour')
-  const bookings = await DB.booking.findMany({ orderBy: { start: 'desc' }, where: { start: { gte: date.toDate() } } })
+  const bookings = await DB.booking.findMany({ orderBy: { start: 'desc' }, where: { start: { gte: new Date() } } })
   for (const booking of bookings) {
     // 00, Minute, Hour, Day, Month,*,Year,1,CJ0, Ofen an, 0, 24, 1, *
     // 00,00,17,24,11,*,2021,1,CJ0,Ofen an,0,24,1,*
