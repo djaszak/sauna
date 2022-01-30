@@ -1,3 +1,5 @@
+# ONLY FOR DEVELOPMENT, NOT MENT FOR PRODUCTION
+
 version: '3.8'
 
 services:
