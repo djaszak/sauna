@@ -124,7 +124,7 @@
 
 <Modal
   open={booking !== null}
-  size="xs"
+  size="sm"
   modalHeading="Create Event"
   primaryButtonText="Confirm"
   secondaryButtonText="Cancel"
@@ -140,12 +140,11 @@
     {#if booking}
       <DateTime bind:date={booking.start} />
       <DateTime bind:date={booking.end} />
-      <TextArea bind:value={booking.note} labelText="Notes" rows={16} />
+      <TextArea bind:value={booking.note} labelText="Notes" rows={5} />
     {/if}
   </Form>
 </Modal>
 
-<h2>Schweißhöhle</h2>
 <div class="flex items-center justify-between  flex-wrap mv2 buttons">
   <div class="flex">
     <Button
@@ -163,7 +162,7 @@
     <Button size="small" kind="secondary" on:click={() => calendar.next()} class="ml1">👉 Next</Button>
   </div>
 </div>
-<div bind:this={el} />
+<div class="calendar" bind:this={el} />
 
 <style>
   @media (max-width: 30rem) {

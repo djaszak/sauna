@@ -26,7 +26,7 @@
       })
       check()
     } catch (e) {
-      error = new Error('could not register')
+      error = new Error(isRegister ? 'Could not register' : 'Could not login')
     }
   }
 </script>
@@ -52,3 +52,9 @@
     <p>{error.message}</p>
   {/if}
 </div>
+
+<style>
+  p {
+    color: red;
+  }
+</style>

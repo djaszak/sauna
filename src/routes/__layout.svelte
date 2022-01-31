@@ -14,12 +14,17 @@
   })
 </script>
 
+<svelte:head>
+  <title>Schwitzen bis in die Ritze</title>
+</svelte:head>
+
 <main>
-  <h1>Sauna</h1>
+  <h1>Peters Garten Sauna</h1>
 
   {#if $LoggedIn === null}
     <p>Loading...</p>
   {:else if $LoggedIn === true}
+    <h2>Buch dein Schwitzgang 💨</h2>
     <slot />
   {:else}
     <Auth />
