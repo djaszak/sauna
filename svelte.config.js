@@ -7,7 +7,6 @@ const config = {
   preprocess: [preprocess(), optimizeImports()],
   kit: {
     adapter: adapter(),
-    target: '#svelte',
     methodOverride: {
       allowed: ['DELETE', 'PATCH'],
     },

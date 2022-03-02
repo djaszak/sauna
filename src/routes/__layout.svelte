@@ -1,11 +1,9 @@
 <script lang="ts">
   import { check, LoggedIn } from '$lib/stores/auth'
   import Auth from '$lib/views/Auth.svelte'
-  import 'carbon-components-svelte/css/all.css'
   import dayjs from 'dayjs'
   import customParseFormat from 'dayjs/plugin/customParseFormat.js'
   import { onMount } from 'svelte'
-  import 'tachyons/css/tachyons.min.css'
 
   dayjs.extend(customParseFormat)
 
@@ -31,7 +29,10 @@
   {/if}
 </main>
 
-<style>
+<style global lang="stylus">
+  @import 'tachyons/css/tachyons.min.css'
+  @import 'carbon-components-svelte/css/white.css'
+
   main {
     max-width: 50rem;
     margin: 0 auto;
