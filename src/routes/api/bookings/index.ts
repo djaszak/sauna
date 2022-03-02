@@ -1,9 +1,8 @@
-import type { Booking, Prisma } from '$lib/db'
+import type { Prisma } from '$lib/db'
 import DB from '$lib/db'
 import type { RequestHandler } from '@sveltejs/kit'
-import type { Locals } from 'src/hooks'
 
-export const post: RequestHandler<Locals> = async ({ request, locals }) => {
+export const post: RequestHandler = async ({ request, locals }) => {
   try {
     const body: Prisma.BookingCreateInput = await request.json()
     if (!locals.user) return { status: 401 }
@@ -15,7 +14,7 @@ export const post: RequestHandler<Locals> = async ({ request, locals }) => {
   }
 }
 
-export const get: RequestHandler = async ({ request, locals }) => {
+export const get: RequestHandler = async ({ locals }) => {
   try {
     if (!locals.user) return { status: 401 }
     const bookings = await DB.booking.findMany()

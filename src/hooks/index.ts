@@ -7,7 +7,7 @@ export type Locals = {
   user: User | null
 }
 
-export const handle: Handle<Locals> = async ({ event, resolve }) => {
+export const handle: Handle = async ({ event, resolve }) => {
   const c = cookie.parse(event.request.headers.get('cookie') || '')['token']
   if (c) {
     try {

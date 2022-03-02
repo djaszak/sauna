@@ -1,13 +1,6 @@
-import pkg, { PrismaClient } from '@prisma/client'
-export type { Prisma, User, Booking } from '@prisma/client'
+import Prisma from '@prisma/client'
+export type { Prisma, User, Booking, PrismaClient } from '@prisma/client'
 
-let DB: PrismaClient
-
-if (process.env.NODE_ENV === 'production') {
-  const { PrismaClient: PrismaClientProd } = pkg
-  DB = new PrismaClientProd()
-} else {
-  DB = new PrismaClient()
-}
+let DB = new Prisma.PrismaClient()
 
 export default DB

@@ -170,4 +170,10 @@
       width: calc((100vw / 2) - 2rem);
     }
   }
+
+  @media (prefers-color-scheme: dark) {
+    .calendar {
+      filter: invert(1) hue-rotate(180deg);
+    }
+  }
 </style>
