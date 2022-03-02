@@ -21,11 +21,12 @@
 
 <main>
   <h1>Peters Garten Sauna</h1>
+  <div class="mb2" />
 
   {#if $LoggedIn === null}
     <p>Loading...</p>
   {:else if $LoggedIn === true}
-    <h2 class="mt2 mb3">Buch dein Schwitzgang 💨</h2>
+    <h2 class="mb3">Buch dein Schwitzgang 💨</h2>
     <slot />
   {:else}
     <Auth />

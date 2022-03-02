@@ -10,12 +10,21 @@ datasource db {
   url      = "file:../data/dev.db"
 }
 
+model Code {
+  id         String   @id @default(uuid())
+  code       String
+  expiration DateTime
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String
+}
+
 model User {
   id       String    @id @default(uuid())
   name     String
   email    String    @unique
   password String
   Booking  Booking[]
+  Code     Code[]
 }
 
 model Booking {
@@ -23,6 +32,6 @@ model Booking {
   start  DateTime
   end    DateTime
   note   String
-  user   User     @relation(fields: [userId], references: [id])
+  user   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String
 }
