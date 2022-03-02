@@ -25,7 +25,7 @@
   {#if $LoggedIn === null}
     <p>Loading...</p>
   {:else if $LoggedIn === true}
-    <h2>Buch dein Schwitzgang 💨</h2>
+    <h2 class="mt2 mb3">Buch dein Schwitzgang 💨</h2>
     <slot />
   {:else}
     <Auth />
@@ -39,6 +39,16 @@
   main {
     max-width: 50rem;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem;
+  }
+
+  @media (max-width: 40rem) {
+    h1 {
+      font-size: 2rem
+    }
+
+    h2 {
+      font-size: 1.5rem
+    }
   }
 </style>

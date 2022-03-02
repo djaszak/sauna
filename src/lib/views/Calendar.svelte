@@ -145,7 +145,7 @@
   </Form>
 </Modal>
 
-<div class="flex items-center justify-between  flex-wrap mv2 buttons">
+<div class="flex items-center justify-between flex-wrap mv2 buttons">
   <div class="flex">
     <Button
       size="small"
@@ -164,10 +164,21 @@
 </div>
 <div class="calendar" bind:this={el} />
 
-<style>
-  @media (max-width: 30rem) {
+<style lang="stylus">
+  buttonPadding = 0.1rem
+
+  .buttons :global(.bx--btn) {
+    margin: buttonPadding buttonPadding 0 0
+  }
+
+  @media (max-width: 40rem) {
     .buttons :global(.bx--btn) {
-      width: calc((100vw / 2) - 2rem);
+      width: "calc((100vw / 2) - 1rem - (%s / 2))" % (buttonPadding)
+    }
+
+    .flex > .flex {
+      justify-content: space-between
+      width: 100%
     }
   }
 
@@ -175,5 +186,13 @@
     .calendar {
       filter: invert(1) hue-rotate(180deg);
     }
+  }
+
+  .calendar {
+    overflow-x: auto
+  }
+
+  .calendar > :global(*) {
+    min-width: 30rem
   }
 </style>
