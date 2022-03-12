@@ -27,7 +27,7 @@
           config.data = { email: user.email, password: user.password }
           break
         case 1:
-          config.url = '/api/auth/login'
+          config.url = '/api/auth/register'
           config.data = { ...user }
           break
         case 2:
